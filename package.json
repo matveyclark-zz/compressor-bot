@@ -4,7 +4,8 @@
   "description": "A telegram bot for quickly compressing images during development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,11 @@
   "homepage": "https://github.com/matveyclark/compressor-bot#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
     "node-telegram-bot-api": "^0.40.0",
     "open-graph-scraper": "^3.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }
