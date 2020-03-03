@@ -1,0 +1,24 @@
+{
+  "name": "compressor-bot",
+  "version": "1.0.0",
+  "description": "A telegram bot for quickly compressing images during development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matveyclark/compressor-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matveyclark/compressor-bot/issues"
+  },
+  "homepage": "https://github.com/matveyclark/compressor-bot#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "open-graph-scraper": "^3.6.2"
+  }
+}
