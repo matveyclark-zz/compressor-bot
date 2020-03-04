@@ -13,7 +13,7 @@ const bot = new TelegramBot(process.env.bot_api_key, { polling: true })
 bot.on('message', msg => {
     bot.sendMessage(msg.chat.id, 'Thanks for the photo... Sending off for compression...')
     .then(() => {
-        API.getSentPicture(msg.photo[0].file_id)
+        API.getSentPicture(msg.photo[0].file_id, bot, msg)
     })
 })
 
