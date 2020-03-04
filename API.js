@@ -12,7 +12,7 @@ const baseURI = `https://api.telegram.org/bot${process.env.bot_api_key}/getFile?
 const get = url => fetch(url).then(resp => resp.json())
 
 const sendForCompression = (img, bot, msg) => {
-    return get(`http://api.resmush.it/ws.php?img=${img}&qlty=95`)
+    return get(`http://api.resmush.it/ws.php?img=${img}&qlty=90`)
     .then(image => {
         bot.sendMessage(msg.chat.id, 'Here is your compressed image. 📦')
         bot.sendPhoto(msg.chat.id, image.dest)

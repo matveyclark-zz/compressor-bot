@@ -14,11 +14,15 @@ bot.on('message', msg => {
     if(msg.photo) {
         bot.sendMessage(msg.chat.id, '💥 Please send the image as a file to avoid loss of quality! 💥')
     } else {
-        bot.sendMessage(msg.chat.id, 'Thanks for the photo ♥️')
-        .then(() => {
-            bot.sendMessage(msg.chat.id, 'Sending the photo off for compression! 🤖')
-            API.getSentPicture(msg.document.file_id, bot, msg)
-        })
+        if(msg.document.file_size > 5000000) {
+            bot.sendMessage(msg.chat.id, 'The image must be smaller than 5mb 😢')
+        } else {
+            bot.sendMessage(msg.chat.id, 'Thanks for the photo ♥️')
+            .then(() => {
+                bot.sendMessage(msg.chat.id, 'Sending the photo off for compression! 🤖')
+                API.getSentPicture(msg.document.file_id, bot, msg)
+            })
+        }
     }
 })
 
