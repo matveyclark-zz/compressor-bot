@@ -11,10 +11,15 @@ const bot = new TelegramBot(process.env.bot_api_key, { polling: true })
 
 // configuring the bot befaviour
 bot.on('message', msg => {
-    bot.sendMessage(msg.chat.id, 'Thanks for the photo... Sending off for compression...')
-    .then(() => {
-        API.getSentPicture(msg.photo[0].file_id, bot, msg)
-    })
+    if(msg.photo) {
+        bot.sendMessage(msg.chat.id, '💥 Please send the image as a file to avoid loss of quality! 💥')
+    } else {
+        bot.sendMessage(msg.chat.id, 'Thanks for the photo ♥️')
+        .then(() => {
+            bot.sendMessage(msg.chat.id, 'Sending the photo off for compression! 🤖')
+            API.getSentPicture(msg.document.file_id, bot, msg)
+        })
+    }
 })
 
 bot.on("polling_error", (err) => console.log(err));
