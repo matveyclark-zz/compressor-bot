@@ -14,5 +14,7 @@ const get = url => fetch(url).then(resp => resp.json())
 // functions
 exports.getSentPicture = fileID => {
     return get(baseURI.replace('<file_id>', fileID))
-    .then(console.log)
+    .then(resp => {
+        console.log(`https://api.telegram.org/file/bot${process.env.bot_api_key}/${resp.result.file_path}`)
+    })
 }
