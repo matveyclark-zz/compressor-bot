@@ -14,7 +14,7 @@ const get = url => fetch(url).then(resp => resp.json())
 const sendForCompression = (img, bot, msg) => {
     return get(`http://api.resmush.it/ws.php?img=${img}&qlty=90`)
     .then(image => {
-        bot.sendMessage(msg.chat.id, 'Here is your compressed image. 📦')
+        bot.sendMessage(msg.chat.id, 'Here is your compressed image 📦')
         bot.sendPhoto(msg.chat.id, image.dest)
     }).catch(error => console.log(error))
 }
